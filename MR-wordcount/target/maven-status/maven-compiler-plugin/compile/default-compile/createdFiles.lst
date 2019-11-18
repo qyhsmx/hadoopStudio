@@ -1,0 +1,8 @@
+com\qyy\wordcount\WordCountReduce.class
+com\qyy\wordcount2\SortCoupleMapper.class
+com\qyy\wordcount\WordCountJob.class
+com\qyy\wordcount2\Pair.class
+com\qyy\wordcount2\SortCoupleReducer.class
+com\qyy\wordcount\WordLengthPartitioner.class
+com\qyy\wordcount2\SortCoupleJob.class
+com\qyy\wordcount\WordCountMapper.class
