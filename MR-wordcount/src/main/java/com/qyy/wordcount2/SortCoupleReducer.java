@@ -17,9 +17,7 @@ public class SortCoupleReducer extends Reducer<Pair,IntWritable,Pair,IntWritable
     @Override
     protected void reduce(Pair key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
         AtomicInteger sum = new AtomicInteger();
-        values.forEach(val->{
-            sum.addAndGet(val.get());
-        });
+        values.forEach(val -> sum.addAndGet(val.get()));
         context.write(key,new IntWritable(sum.intValue()));
     }
 }

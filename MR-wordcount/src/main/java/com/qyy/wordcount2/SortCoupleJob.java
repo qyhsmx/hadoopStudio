@@ -3,11 +3,11 @@ package com.qyy.wordcount2;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
-import org.apache.hadoop.mapred.JobClient;
-import org.apache.hadoop.mapred.JobConf;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 
 import java.io.IOException;
 
@@ -36,8 +36,11 @@ public class SortCoupleJob  {
         job.setOutputValueClass(IntWritable.class);
         job.setCombinerClass(SortCoupleReducer.class);
 
-        FileInputFormat.setInputPaths(job,new Path(args[0]));
-        FileOutputFormat.setOutputPath(job,new Path(args[1]));
+        job.setInputFormatClass(TextInputFormat.class);
+        job.setOutputFormatClass(TextOutputFormat.class);
+
+        TextInputFormat.setInputPaths(job,new Path(args[0]));
+        TextOutputFormat.setOutputPath(job,new Path(args[1]));
 
         boolean b = job.waitForCompletion(true);
 
